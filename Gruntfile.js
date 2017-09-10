@@ -16,20 +16,24 @@ module.exports = function(grunt) {
           sizes: [{
             /* Change these */
             width: 1600,
-            suffix: '_large_2x',
-            quality: 30
+            height: 1200,
+            name: 'large_2x',
+            quality: 60
           },{
             width: 800,
-            suffix: '_large_1x',
-            quality: 50
+            height: 600,
+            name: 'medium',
+            quality: 60
           },{
-            width: 750,
-            suffix:"_medium",
+            width: 1000,
+            height: 750,
+            name:"large_1x",
             quality: 60
           },{
             width:500,
-            suffix:"_small",
-            quality: 70
+            height: 375,
+            name:"small",
+            quality: 60
           }]
         },
 
@@ -66,8 +70,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-mkdir');
-  grunt.registerTask('default', ['clean', 'mkdir', 'responsive_images']);
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.registerTask('default', ['clean', 'mkdir','responsive_images']);
 
 };
